@@ -4,10 +4,11 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget{
   const HomeScreenAppBar({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
     return AppBar(
         title: const Text(AppStrings.appTitle),
         centerTitle: true,
-        elevation: 10,
+      elevation: 0,
     );
   }
   @override
