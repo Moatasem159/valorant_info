@@ -16,7 +16,7 @@ class BuildHomeBody extends StatelessWidget {
           title: AppStrings.agents,
           cover: Constants.agentsCover,
           onTap: () {
-            GoRouter.of(context).pushNamed(Routes.agentsRoute);
+           GoRouter.of(context).pushNamed(Routes.agentsRoute);
           },
         ),
       ],

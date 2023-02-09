@@ -8,20 +8,28 @@ import 'package:valorant_info/core/api/dio_consumer.dart';
 import 'package:valorant_info/core/network/network_info.dart';
 import 'package:valorant_info/core/shared/shared_prefrences.dart';
 import 'package:valorant_info/core/shared/shared_prefrences_consumer.dart';
+import 'package:valorant_info/features/agents/data/datasources/agent_remote_datasource.dart';
+import 'package:valorant_info/features/agents/data/repositories/agents_repository_impl.dart';
+import 'package:valorant_info/features/agents/domain/repositories/agents_repository.dart';
+import 'package:valorant_info/features/agents/domain/usecases/get_agents_usecase.dart';
+import 'package:valorant_info/features/agents/presentation/cubit/agents_cubit.dart';
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
   //blocs
-
+  sl.registerFactory(() =>AgentsCubit(getAgentsUseCase: sl()));
 
   //useCases
-
+  sl.registerLazySingleton<GetAgentsUseCase>(
+          () => GetAgentsUseCase(sl()));
   // Repository
-
+  sl.registerLazySingleton<AgentsRepository>(
+          () => AgentRepositoryImpl(agentsRemoteDataSource:sl(),networkInfo: sl()));
 
   //dataSource
-
+  sl.registerLazySingleton<AgentsRemoteDataSource>(
+          () => AgentsRemoteDataSourceImpl(apiConsumer: sl()));
 
 
   ///core

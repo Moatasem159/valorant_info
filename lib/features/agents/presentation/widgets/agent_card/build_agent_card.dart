@@ -15,7 +15,7 @@ class BuildAgentCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(AppSize.s8),
       child: SizedBox(
-        height:AppSize.s250 ,
+        height:AppSize.s250,
         width: AppSize.s400,
         child: Stack(
           children:  [

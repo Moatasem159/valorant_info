@@ -6,20 +6,24 @@ class AgentImage extends StatelessWidget {
   const AgentImage({Key? key, required this.image}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: image,
-      imageBuilder:(context, imageProvider) {
-        return Container(
-          width: AppSize.s150,
-          height: AppSize.s250,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.fitHeight
-              )
-          ),
-        );
-      },
+    return Positioned(
+      left: 0,
+      child: CachedNetworkImage(
+        imageUrl: image,
+        imageBuilder:(context, imageProvider) {
+          return Container(
+            width: AppSize.s160,
+            height: AppSize.s250,
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.fitHeight
+                )
+            ),
+          );
+        },
+      ),
     );
   }
 }

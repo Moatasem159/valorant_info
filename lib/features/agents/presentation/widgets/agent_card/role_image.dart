@@ -8,8 +8,9 @@ class RoleImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomRight,
+    return Positioned(
+      right: 0,
+      bottom: 0,
       child: CachedNetworkImage(
         imageUrl: image,
         imageBuilder: (context, imageProvider) {

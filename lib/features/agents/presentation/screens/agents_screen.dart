@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:valorant_info/features/agents/presentation/cubit/agents_cubit.dart';
+import 'package:valorant_info/features/agents/presentation/cubit/agents_state.dart';
+import 'package:valorant_info/features/agents/presentation/widgets/agent_screen_loading_body.dart';
+import 'package:valorant_info/features/agents/presentation/widgets/agent_screen_body.dart';
 class AgentsScreen extends StatelessWidget {
   const AgentsScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(child: Scaffold(
-       backgroundColor: Theme.of(context).colorScheme.background,
-      body: const Center(child: Text("Agents Screen")),
-    ));
+    return BlocBuilder<AgentsCubit, AgentsStates>(
+      builder: (context, state){
+        AgentsCubit cubit=BlocProvider.of<AgentsCubit>(context);
+        if(state is GetAgentsSuccessState)
+        {
+          return AgentScreenBody(agents: cubit.agents!,);
+        }
+        if(state is GetAgentsLoadingState)
+        {
+          return const AgentScreenLoadingBody();
+        }
+        return const AgentScreenLoadingBody();
+      },
+    );
   }
 }
+
