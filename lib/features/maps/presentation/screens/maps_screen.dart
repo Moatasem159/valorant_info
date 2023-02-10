@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+
+class MapsScreen extends StatelessWidget {
+  const MapsScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+          body: Center(child: Text("data")),
+    ));
+  }
+}

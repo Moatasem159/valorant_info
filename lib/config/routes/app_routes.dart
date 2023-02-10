@@ -5,11 +5,13 @@ import 'package:valorant_info/features/agents/domain/entities/agent.dart';
 import 'package:valorant_info/features/agents/presentation/screens/agent_details_screen.dart';
 import 'package:valorant_info/features/agents/presentation/screens/agents_screen.dart';
 import 'package:valorant_info/features/home/presentation/screens/home_screen.dart';
+import 'package:valorant_info/features/maps/presentation/screens/maps_screen.dart';
 
 class Routes {
   static const String initialRoute = "/";
   static const String agentsRoute = "/agentsRoute";
   static const String agentDetailsRoute = "/agentDetailsRoute";
+  static const String mapsRoute = "/mapsRoute";
 }
 
 abstract class AppRoute {
@@ -43,6 +45,11 @@ abstract class AppRoute {
         builder: (context, state) =>  AgentDetailsScreen(
           agent:state.extra as Agent,
         ),
+      ),
+      GoRoute(
+        name: Routes.mapsRoute,
+        path: Routes.mapsRoute,
+        builder: (context, state) =>  const MapsScreen(),
       ),
     ],
   );
