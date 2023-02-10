@@ -19,6 +19,11 @@ class BuildHomeBody extends StatelessWidget {
            GoRouter.of(context).pushNamed(Routes.agentsRoute);
           },
         ),
+        CardWidget(
+          title: AppStrings.maps,
+          cover: Constants.mapsCover,
+          onTap: () {},
+        ),
       ],
     );
   }
