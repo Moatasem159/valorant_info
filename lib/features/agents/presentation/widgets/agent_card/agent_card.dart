@@ -6,10 +6,6 @@ class AgentCard extends StatelessWidget {
   const AgentCard({Key? key, required this.agent}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return  BuildAgentCard(
-        agentImage: agent.fullPortraitV2!,
-        agentName: agent.displayName!,
-        agentRole: agent.role!.displayName!,
-        agentRoleImage: agent.role!.displayIcon!,);
+    return  BuildAgentCard(agent:agent);
   }
 }

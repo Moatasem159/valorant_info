@@ -13,7 +13,13 @@ class AgentsScreen extends StatelessWidget {
         AgentsCubit cubit=BlocProvider.of<AgentsCubit>(context);
         if(state is GetAgentsSuccessState)
         {
-          return AgentScreenBody(agents: cubit.agents!,);
+          if(cubit.isAll){
+            return AgentScreenBody(agents: cubit.agents,);
+          }
+          if(!cubit.isAll)
+            {
+              return AgentScreenBody(agents: cubit.roleAgents,);
+            }
         }
         if(state is GetAgentsLoadingState)
         {
