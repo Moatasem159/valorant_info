@@ -1,7 +1,8 @@
 import 'package:valorant_info/features/agents/domain/entities/ability.dart';
 
+// ignore: must_be_immutable
 class AbilityModel extends Ability{
-  const AbilityModel({
+   AbilityModel({
     super.slot,
     super.description,
     super.displayIcon,

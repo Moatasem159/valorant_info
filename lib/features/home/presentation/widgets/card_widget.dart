@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/core/utils/app_padding.dart';
+import 'package:valorant_info/core/utils/app_radius.dart';
 import 'package:valorant_info/core/utils/app_size.dart';
+import 'package:valorant_info/core/utils/font_size.dart';
 class CardWidget extends StatefulWidget {
   final String cover;
   final String title;
@@ -25,7 +28,7 @@ class _CardWidgetState extends State<CardWidget> {
     return GestureDetector(
       onTap:widget.onTap,
       child: Padding(
-        padding: const EdgeInsets.all(AppSize.s8),
+        padding: const EdgeInsets.all(AppPadding.s8),
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
@@ -33,7 +36,7 @@ class _CardWidgetState extends State<CardWidget> {
               width: AppSize.s350,
               height: AppSize.s200,
               decoration:  BoxDecoration(
-                borderRadius: BorderRadius.circular(AppSize.s10),
+                borderRadius: BorderRadius.circular(AppRadius.s10),
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: assetImage
@@ -46,11 +49,11 @@ class _CardWidgetState extends State<CardWidget> {
               width: AppSize.s350,
               decoration: const BoxDecoration(
                   color:Colors.black54,
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(AppSize.s10))
+                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(AppRadius.s10))
               ),
               child:  Text(widget.title,style: const TextStyle(
                   color: Colors.white,
-                  fontSize: AppSize.s18
+                  fontSize: FontSize.s18
               )),
             ),
           ],

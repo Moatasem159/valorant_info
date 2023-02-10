@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:valorant_info/features/agents/domain/entities/agent.dart';
+import 'package:valorant_info/features/agents/presentation/screens/agent_details_screen.dart';
 import 'package:valorant_info/features/agents/presentation/screens/agents_screen.dart';
 import 'package:valorant_info/features/home/presentation/screens/home_screen.dart';
 
 class Routes {
   static const String initialRoute = "/";
   static const String agentsRoute = "/agentsRoute";
+  static const String agentDetailsRoute = "/agentDetailsRoute";
 }
 
 abstract class AppRoute {
@@ -33,6 +36,13 @@ abstract class AppRoute {
             },
           );
         },
+      ),
+      GoRoute(
+        name: Routes.agentDetailsRoute,
+        path: Routes.agentDetailsRoute,
+        builder: (context, state) =>  AgentDetailsScreen(
+          agent:state.extra as Agent,
+        ),
       ),
     ],
   );

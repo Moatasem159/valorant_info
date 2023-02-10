@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/core/utils/app_padding.dart';
+import 'package:valorant_info/core/utils/app_radius.dart';
 import 'package:valorant_info/core/utils/app_size.dart';
 class RoleWidget extends StatelessWidget {
   final String role;
@@ -12,14 +14,14 @@ class RoleWidget extends StatelessWidget {
     return GestureDetector(
       onTap:onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 3,vertical:8),
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.s3,vertical:AppPadding.s8),
         child: Container(
           alignment: Alignment.center,
-          padding: const EdgeInsets.all(AppSize.s8),
-          height: 50,
+          padding: const EdgeInsets.all(AppPadding.s8),
+          height: AppSize.s50,
           decoration: BoxDecoration(
               color: isSelected ?Theme.of(context).primaryColor:Theme.of(context).colorScheme.background,
-              borderRadius: BorderRadius.circular(AppSize.s10),
+              borderRadius: BorderRadius.circular(AppRadius.s10),
             border: Border.all(color: Theme.of(context).primaryColor)
           ),
           child:Text(role,style: Theme.of(context).textTheme.labelMedium!.copyWith(

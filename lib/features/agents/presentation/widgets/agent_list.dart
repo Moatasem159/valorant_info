@@ -12,7 +12,7 @@ class AgentsList extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: agents.length,
         itemBuilder: (context, index) {
-        return  AgentCard(agent: agents[index],);
+        return  AgentCard(agent:agents[index]);
       },),
     );
   }

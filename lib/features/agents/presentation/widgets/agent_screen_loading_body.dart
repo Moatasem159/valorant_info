@@ -11,7 +11,7 @@ class AgentScreenLoadingBody extends StatelessWidget {
               width:AppSize.s60,
               height:AppSize.s60,
               child: CircularProgressIndicator(
-                strokeWidth: AppSize.s1_5,
+                strokeWidth: 1.5,
               ),
             ))
         ));
