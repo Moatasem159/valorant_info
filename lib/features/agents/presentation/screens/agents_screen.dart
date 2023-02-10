@@ -14,11 +14,10 @@ class AgentsScreen extends StatelessWidget {
         if(state is GetAgentsSuccessState)
         {
           if(cubit.isAll){
-            return AgentScreenBody(agents: cubit.agents,);
+            return AgentScreenBody(agents:cubit.agents);
           }
-          if(!cubit.isAll)
-            {
-              return AgentScreenBody(agents: cubit.roleAgents,);
+          if(!cubit.isAll){
+              return AgentScreenBody(agents:cubit.roleAgents);
             }
         }
         if(state is GetAgentsLoadingState)
@@ -30,4 +29,3 @@ class AgentsScreen extends StatelessWidget {
     );
   }
 }
-

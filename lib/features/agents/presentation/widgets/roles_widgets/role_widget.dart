@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:valorant_info/core/utils/app_size.dart';
 class RoleWidget extends StatelessWidget {
   final String role;
   final bool isSelected;
@@ -15,15 +15,15 @@ class RoleWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 3,vertical:8),
         child: Container(
           alignment: Alignment.center,
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(AppSize.s8),
           height: 50,
           decoration: BoxDecoration(
               color: isSelected ?Theme.of(context).primaryColor:Theme.of(context).colorScheme.background,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(AppSize.s10),
             border: Border.all(color: Theme.of(context).primaryColor)
           ),
-          child:  Text(role,style: Theme.of(context).textTheme.labelMedium!.copyWith(
-            color: isSelected?Theme.of(context).colorScheme.background:Theme.of(context).primaryColor
+          child:Text(role,style: Theme.of(context).textTheme.labelMedium!.copyWith(
+            color:isSelected?Theme.of(context).colorScheme.background:Theme.of(context).primaryColor
           ),),
         ),
       ),
