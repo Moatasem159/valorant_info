@@ -6,11 +6,11 @@ abstract class AgentsRemoteDataSource{
   Future<List<AgentModel>> getAgents();
 }
 class AgentsRemoteDataSourceImpl implements AgentsRemoteDataSource{
-  final ApiConsumer apiConsumer;
-  AgentsRemoteDataSourceImpl({required this.apiConsumer});
+  final ApiConsumer _apiConsumer;
+  AgentsRemoteDataSourceImpl(this._apiConsumer);
   @override
   Future<List<AgentModel>> getAgents()async{
-    final response=await apiConsumer.get(EndPoints.agentsUrl);
+    final response=await _apiConsumer.get(EndPoints.agentsUrl);
     return List<AgentModel>.from(
       (response['data'] as List).map(
             (x) => AgentModel.fromJson(x),

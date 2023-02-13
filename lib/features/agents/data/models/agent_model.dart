@@ -1,7 +1,6 @@
 import 'package:valorant_info/features/agents/data/models/ability_model.dart';
 import 'package:valorant_info/features/agents/data/models/role_model.dart';
 import 'package:valorant_info/features/agents/domain/entities/agent.dart';
-
 class AgentModel extends Agent {
   const AgentModel(
       {super.agentId,
@@ -34,7 +33,7 @@ class AgentModel extends Agent {
       abilities: List<AbilityModel>.from(json["abilities"].map((x) => AbilityModel.fromJson(x))),
   );
 
-  Map<String, dynamic> agentToJson() => {
+    Map<String, dynamic> agentToJson() => {
       "uuid": agentId,
       "displayName": displayName,
       "description": description,

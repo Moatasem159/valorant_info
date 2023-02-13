@@ -4,6 +4,7 @@ import 'package:valorant_info/app/injection_container.dart';
 import 'package:valorant_info/config/routes/app_routes.dart';
 import 'package:valorant_info/config/themes/app_theme.dart';
 import 'package:valorant_info/features/agents/presentation/cubit/agents_cubit.dart';
+import 'package:valorant_info/features/maps/presentation/cubits/map_cubit.dart';
 
 class ValorantInfo extends StatelessWidget {
   const ValorantInfo({super.key});
@@ -12,7 +13,8 @@ class ValorantInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => sl<AgentsCubit>()..getAgents(),)
+        BlocProvider(create: (context) => sl<AgentsCubit>()..getAgents(),),
+        BlocProvider(create: (context) => sl<MapCubit>()..getMaps(),)
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

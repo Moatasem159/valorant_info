@@ -7,14 +7,14 @@ import 'package:valorant_info/features/agents/data/datasources/agent_remote_data
 import 'package:valorant_info/features/agents/domain/entities/agent.dart';
 import 'package:valorant_info/features/agents/domain/repositories/agents_repository.dart';
 class AgentRepositoryImpl implements AgentsRepository{
-  final AgentsRemoteDataSource agentsRemoteDataSource;
-  final NetworkInfo networkInfo;
-  AgentRepositoryImpl({required this.agentsRemoteDataSource, required this.networkInfo});
+  final AgentsRemoteDataSource _agentsRemoteDataSource;
+  final NetworkInfo _networkInfo;
+  AgentRepositoryImpl(this._agentsRemoteDataSource,this._networkInfo);
   @override
   Future<Either<Failure, List<Agent>>> getAgents() async{
-   if(await networkInfo.isConnected) {
+   if(await _networkInfo.isConnected) {
      try{
-       final result=await agentsRemoteDataSource.getAgents();
+       final List<Agent> result=await _agentsRemoteDataSource.getAgents();
        return Right(result);
      }on ServerException catch (failure) {
        return Left(ServerFailure(failure.message!));
