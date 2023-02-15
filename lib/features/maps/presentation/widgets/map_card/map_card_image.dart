@@ -9,34 +9,37 @@ class MapCardImage extends StatelessWidget {
   const MapCardImage({super.key, required this.map,});
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: map.splash!,
-      imageBuilder: (context, imageProvider) {
-        return Container(
-            height: MediaQuery.of(context).size.height/3.7,
-            width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.all(AppPadding.s3),
-            margin: const EdgeInsets.all(AppPadding.s5),
-            decoration:BoxDecoration(
+    return Hero(
+      tag: "Hero${map.mapId}",
+      child: CachedNetworkImage(
+        imageUrl: map.splash!,
+        imageBuilder: (context, imageProvider) {
+          return Container(
+              height: MediaQuery.of(context).size.height/3.7,
+              width: MediaQuery.of(context).size.width,
+              padding: const EdgeInsets.all(AppPadding.s3),
+              margin: const EdgeInsets.all(AppPadding.s5),
+              decoration:BoxDecoration(
+                  borderRadius: BorderRadius.circular(AppRadius.s14),
+                  image: DecorationImage(image: imageProvider)
+              )
+          );
+        },
+        placeholder: (context, url) => Shimmer.fromColors(
+          baseColor: Colors.grey[600]!,
+          highlightColor:Colors.grey[500]! ,
+          child: Container(
+              height: MediaQuery.of(context).size.height/3.7,
+              width: MediaQuery.of(context).size.width,
+              padding: const EdgeInsets.all(AppPadding.s3),
+              margin: const EdgeInsets.all(AppPadding.s5),
+              decoration:BoxDecoration(
+                color: Colors.grey,
                 borderRadius: BorderRadius.circular(AppRadius.s14),
-                image: DecorationImage(image: imageProvider)
-            )
-        );
-      },
-      placeholder: (context, url) => Shimmer.fromColors(
-        baseColor: Colors.grey[600]!,
-        highlightColor:Colors.grey[500]! ,
-        child: Container(
-            height: MediaQuery.of(context).size.height/3.7,
-            width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.all(AppPadding.s3),
-            margin: const EdgeInsets.all(AppPadding.s5),
-            decoration:BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(AppRadius.s14),
-            )
-        ),
-      ) ,
+              )
+          ),
+        ) ,
+      ),
     );
   }
 }

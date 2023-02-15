@@ -5,13 +5,16 @@ import 'package:valorant_info/features/agents/domain/entities/agent.dart';
 import 'package:valorant_info/features/agents/presentation/screens/agent_details_screen.dart';
 import 'package:valorant_info/features/agents/presentation/screens/agents_screen.dart';
 import 'package:valorant_info/features/home/presentation/screens/home_screen.dart';
+import 'package:valorant_info/features/maps/domain/entities/map_entity.dart';
+import 'package:valorant_info/features/maps/presentation/screens/map_details_screen.dart';
 import 'package:valorant_info/features/maps/presentation/screens/maps_screen.dart';
 
-class Routes {
+abstract class Routes {
   static const String initialRoute = "/";
   static const String agentsRoute = "/agentsRoute";
   static const String agentDetailsRoute = "/agentDetailsRoute";
   static const String mapsRoute = "/mapsRoute";
+  static const String mapDetailsRoute = "/mapDetailsRoute";
 }
 
 abstract class AppRoute {
@@ -50,6 +53,13 @@ abstract class AppRoute {
         name: Routes.mapsRoute,
         path: Routes.mapsRoute,
         builder: (context, state) =>  const MapsScreen(),
+      ),
+      GoRoute(
+        name: Routes.mapDetailsRoute,
+        path: Routes.mapDetailsRoute,
+        builder: (context, state) => MapDetailsScreen(
+            map: state.extra as MapEntity,
+        ),
       ),
     ],
   );

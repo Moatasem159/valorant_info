@@ -24,6 +24,9 @@ abstract class AppTheme{
         labelMedium: TextStyle(
           color: Colors.white
         ),
+      displayMedium: TextStyle(
+          color: Colors.black
+      ),
     ),
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color:Colors.black
@@ -51,7 +54,10 @@ abstract class AppTheme{
    textTheme:const TextTheme(
      labelMedium: TextStyle(
        color: Colors.black,
-     )
+     ),
+     displayMedium: TextStyle(
+         color: Colors.white
+     ),
    ),
   progressIndicatorTheme: const ProgressIndicatorThemeData(
           color:Colors.white
