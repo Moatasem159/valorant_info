@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:valorant_info/features/weapons/data/models/shop_data_model.dart';
 import 'package:valorant_info/features/weapons/data/models/skin_model.dart';
 import 'package:valorant_info/features/weapons/data/models/weapon_stats_model.dart';
@@ -44,4 +46,14 @@ class WeaponModel extends Weapon {
         "skins": List<SkinModel>.from(
             weaponModel.skins!.map((x) => SkinModel.toJson(x))),
       };
+
+  static String encode(List<WeaponModel> weapons) => json.encode(
+      weapons
+          .map<Map<String, dynamic>>((weapon) => WeaponModel.weaponToJson(weapon))
+          .toList());
+
+  static List<WeaponModel> decode(String weapons) =>
+      (json.decode(weapons) as List<dynamic>)
+          .map<WeaponModel>((weapon) => WeaponModel.fromJson(weapon))
+          .toList();
 }
