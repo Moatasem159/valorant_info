@@ -8,6 +8,7 @@ import 'package:valorant_info/core/api/dio_consumer.dart';
 import 'package:valorant_info/core/network/network_info.dart';
 import 'package:valorant_info/core/shared/shared_prefrences.dart';
 import 'package:valorant_info/core/shared/shared_prefrences_consumer.dart';
+import 'package:valorant_info/features/agents/data/datasources/agent_local_datasource.dart';
 import 'package:valorant_info/features/agents/data/datasources/agent_remote_datasource.dart';
 import 'package:valorant_info/features/agents/data/repositories/agents_repository_impl.dart';
 import 'package:valorant_info/features/agents/domain/repositories/agents_repository.dart';
@@ -30,10 +31,11 @@ Future<void> init() async {
   sl.registerLazySingleton<GetAgentsUseCase>(() => GetAgentsUseCase(sl()));
   sl.registerLazySingleton<GetMapsUseCase>(() => GetMapsUseCase(sl()));
   // Repository
-  sl.registerLazySingleton<AgentsRepository>(() => AgentRepositoryImpl(sl(),sl()));
+  sl.registerLazySingleton<AgentsRepository>(() => AgentRepositoryImpl(sl(),sl(),sl()));
   sl.registerLazySingleton<MapRepository>(() => MapRepositoryImpl(sl(),sl()));
   //dataSource
   sl.registerLazySingleton<AgentsRemoteDataSource>(() => AgentsRemoteDataSourceImpl(sl()));
+  sl.registerLazySingleton<AgentLocalDataSource>(() => AgentLocalDataSourceImpl(sl()));
   sl.registerLazySingleton<MapsRemoteDataSource>(() => MapsRemoteDataSourceImpl(sl()));
   ///core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(connectionChecker: sl()));
