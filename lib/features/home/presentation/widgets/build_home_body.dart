@@ -30,7 +30,7 @@ class BuildHomeBody extends StatelessWidget {
             title: AppStrings.weapons,
             cover: Constants.weaponsCover,
             onTap: () {
-              // GoRouter.of(context).pushNamed(Routes.mapsRoute);
+              GoRouter.of(context).pushNamed(Routes.weaponsRoute);
             },
           ),
           CardWidget(
