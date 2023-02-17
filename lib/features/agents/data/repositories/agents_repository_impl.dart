@@ -15,12 +15,14 @@ class AgentRepositoryImpl implements AgentsRepository{
   @override
   Future<Either<Failure, List<Agent>>> getAgents() async{
    List<Agent> cachedAgents=await _agentLocalDataSource.getAgentsFromSharedPref();
-   if(await _networkInfo.isConnected){
+   if(await _networkInfo.isConnected)
+   {
      if(cachedAgents.isNotEmpty)
-       {
+     {
          return right(cachedAgents);
        }
-     else {
+     else
+     {
        try{
        final List<Agent> result=await _agentsRemoteDataSource.getAgents();
        _agentLocalDataSource.saveAgentsInSharedPref(agents:result);
@@ -30,12 +32,14 @@ class AgentRepositoryImpl implements AgentsRepository{
      }
      }
    }
-   else{
+   else
+   {
      if(cachedAgents.isNotEmpty)
        {
          return right(cachedAgents);
        }
-     else {
+     else
+     {
        return left(const ServerFailure(AppStrings.noInternetConnection));
      }
    }

@@ -7,6 +7,7 @@ import 'package:valorant_info/features/maps/domain/usecases/get_maps_usecase.dar
 import 'package:valorant_info/features/maps/presentation/cubits/map_state.dart';
 class MapCubit extends Cubit<MapStates> {
   MapCubit({required this.getMapsUseCase}) : super(MapInitialState());
+  static get(context)=>BlocProvider.of<MapCubit>(context);
   GetMapsUseCase getMapsUseCase;
   late List<MapEntity> maps;
   Future<void> getMaps()async{

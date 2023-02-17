@@ -1,5 +1,5 @@
 import 'package:valorant_info/core/shared/shared_prefrences_consumer.dart';
-import 'package:valorant_info/core/utils/app_constants.dart';
+import 'package:valorant_info/core/utils/app_strings.dart';
 import 'package:valorant_info/features/agents/data/models/agent_model.dart';
 import 'package:valorant_info/features/agents/domain/entities/agent.dart';
 abstract class AgentLocalDataSource{
@@ -12,28 +12,31 @@ class AgentLocalDataSourceImpl implements AgentLocalDataSource{
   @override
   Future<void> saveAgentsInSharedPref({required List<Agent> agents})async{
     final String decodedAgents=AgentModel.encode(agents as List<AgentModel>);
-    _sharedPrefrencesManager.saveData(key: Constants.allAgents, value: decodedAgents);
-    _sharedPrefrencesManager.saveData(key: "time", value: DateTime.now().toIso8601String());
+    _sharedPrefrencesManager.saveData(key: AppStrings.agents, value: decodedAgents);
+    _sharedPrefrencesManager.saveData(key: "agentsTime", value: DateTime.now().toIso8601String());
   }
   @override
   Future<List<Agent>> getAgentsFromSharedPref() async{
     late List<Agent> agents;
-    final String agentString = await _sharedPrefrencesManager.getData(key: Constants.allAgents)??'';
-    final String time = await _sharedPrefrencesManager.getData(key: "time");
+    final String agentString = await _sharedPrefrencesManager.getData(key:AppStrings.agents)??'';
+    final String time = await _sharedPrefrencesManager.getData(key: "agentsTime")??'';
     if(agentString.isNotEmpty)
     {
-      if(DateTime.now().difference(DateTime.parse(time)).inDays>50){
-        _sharedPrefrencesManager.clear(key: Constants.allAgents);
+      if(DateTime.now().difference(DateTime.parse(time)).inDays>50)
+      {
+        _sharedPrefrencesManager.clear(key: AppStrings.agents);
         agents=[];
         return agents;
       }
-      else{
+      else
+      {
         agents=[];
         agents=AgentModel.decode(agentString);
         return agents;
       }
     }
-    else{
+    else
+    {
       agents=[];
       return agents;
     }

@@ -10,18 +10,23 @@ class MapsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MapCubit, MapStates>(
-      builder: (context, state) {
-        MapCubit cubit=BlocProvider.of<MapCubit>(context);
-        if(state is GetMapSuccessState) {
-          return  MapScreenBody(maps: cubit.maps,);
-        }
-        if(state is GetMapsLoadingState)
-          {
+    return Builder(
+      builder: (context) {
+        MapCubit cubit=MapCubit.get(context);
+        cubit.getMaps();
+        return BlocBuilder<MapCubit, MapStates>(
+          builder: (context, state) {
+            if(state is GetMapSuccessState) {
+              return  MapScreenBody(maps: cubit.maps,);
+            }
+            if(state is GetMapsLoadingState)
+              {
+                return const LoadingBody();
+              }
             return const LoadingBody();
-          }
-        return const LoadingBody();
-      },
+          },
+        );
+      }
     );
   }
 }

@@ -24,7 +24,7 @@ class AgentProfile extends StatelessWidget {
             );
           },
           placeholder: (context, url) => const SizedBox(
-            width: AppSize.s290,
+            width: AppSize.s400,
             height: AppSize.s400,
           ),
         ),

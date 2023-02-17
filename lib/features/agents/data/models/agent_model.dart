@@ -59,6 +59,6 @@ class AgentModel extends Agent {
 
   static List<AgentModel> decode(String agents) =>
       (json.decode(agents) as List<dynamic>)
-          .map<AgentModel>((item) => AgentModel.fromJson(item))
+          .map<AgentModel>((agent) => AgentModel.fromJson(agent))
           .toList();
 }

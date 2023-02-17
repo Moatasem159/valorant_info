@@ -8,24 +8,29 @@ class AgentsScreen extends StatelessWidget {
   const AgentsScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AgentsCubit, AgentsStates>(
-      builder: (context, state){
-        AgentsCubit cubit=BlocProvider.of<AgentsCubit>(context);
-        if(state is GetAgentsSuccessState)
-        {
-          if(cubit.isAll){
-            return AgentScreenBody(agents:cubit.agents);
-          }
-          if(!cubit.isAll){
-              return AgentScreenBody(agents:cubit.roleAgents);
+    return Builder(
+      builder: (context) {
+        AgentsCubit cubit=AgentsCubit.get(context);
+        cubit.getAgents();
+        return BlocBuilder<AgentsCubit, AgentsStates>(
+          builder: (context, state){
+            if(state is GetAgentsSuccessState)
+            {
+              if(cubit.isAll){
+                return AgentScreenBody(agents:cubit.agents);
+              }
+              if(!cubit.isAll){
+                  return AgentScreenBody(agents:cubit.roleAgents);
+                }
             }
-        }
-        if(state is GetAgentsLoadingState)
-        {
-          return const LoadingBody();
-        }
-        return const LoadingBody();
-      },
+            if(state is GetAgentsLoadingState)
+            {
+              return const LoadingBody();
+            }
+            return const LoadingBody();
+          },
+        );
+      }
     );
   }
 }

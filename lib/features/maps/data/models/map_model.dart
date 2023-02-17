@@ -1,6 +1,5 @@
-import 'package:valorant_info/features/maps/data/models/callouts_model.dart';
+import 'dart:convert';
 import 'package:valorant_info/features/maps/domain/entities/map_entity.dart';
-
 class MapModel extends MapEntity{
   MapModel(
       {super.mapId,
@@ -8,8 +7,7 @@ class MapModel extends MapEntity{
       super.coordinates,
       super.displayIcon,
       super.listViewIcon,
-      super.splash,
-      super.callouts});
+      super.splash});
 
 
 
@@ -19,17 +17,24 @@ class MapModel extends MapEntity{
       coordinates: json["coordinates"]??'',
       displayIcon: json["displayIcon"]??'',
       listViewIcon: json["listViewIcon"]??'',
-      splash: json["splash"]??'',
-      callouts: json["callouts"]==null?[]:List<CallOutModel>.from(json["callouts"].map((x) => CallOutModel.fromJson(x))),
-  );
+      splash: json["splash"]??'');
 
-  Map<String, dynamic> toJson() => {
-      "uuid": mapId,
-      "displayName": displayName,
-      "coordinates": coordinates,
-      "displayIcon": displayIcon,
-      "listViewIcon": listViewIcon,
-      "splash": splash,
-      "callouts": List<CallOutModel>.from(callouts!.map((x) => x.toJson())),
+  static Map<String, dynamic> toJson(MapModel mapModel) => {
+      "uuid": mapModel.mapId,
+      "displayName": mapModel.displayName,
+      "coordinates": mapModel.coordinates,
+      "displayIcon": mapModel.displayIcon,
+      "listViewIcon": mapModel.listViewIcon,
+      "splash": mapModel.splash,
   };
+
+  static String encode(List<MapModel> maps) => json.encode(
+      maps
+          .map<Map<String, dynamic>>((map) => MapModel.toJson(map))
+          .toList());
+
+  static List<MapModel> decode(String maps) =>
+      (json.decode(maps) as List<dynamic>)
+          .map<MapModel>((map) => MapModel.fromJson(map))
+          .toList();
 }

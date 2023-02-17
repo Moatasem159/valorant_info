@@ -8,6 +8,7 @@ import 'package:valorant_info/features/agents/presentation/cubit/agents_state.da
 class AgentsCubit extends Cubit<AgentsStates> {
   AgentsCubit({required this.getAgentsUseCase}) : super(AgentsInitialState());
   GetAgentsUseCase getAgentsUseCase;
+  static get(context)=>BlocProvider.of<AgentsCubit>(context);
   late List<Agent>agents;
   late List<Agent> roleAgents;
   bool isAll=true;
