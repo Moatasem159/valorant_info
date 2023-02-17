@@ -33,7 +33,7 @@ class WeaponStatsModel extends WeaponStats {
         "reloadTimeSeconds": weaponStats.reloadTimeSeconds,
         "firstBulletAccuracy": weaponStats.firstBulletAccuracy,
         "wallPenetration": weaponStats.wallPenetration,
-        "damageRanges": List<DamageRangeModel>.from(
+        "damageRanges":weaponStats.damageRanges==null?[]:List<dynamic>.from(
             weaponStats.damageRanges!.map((x) => DamageRangeModel.toJson(x))),
       };
 }

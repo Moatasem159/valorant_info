@@ -12,6 +12,7 @@ import 'package:valorant_info/features/maps/domain/entities/map_entity.dart';
 import 'package:valorant_info/features/maps/presentation/cubits/map_cubit.dart';
 import 'package:valorant_info/features/maps/presentation/screens/map_details_screen.dart';
 import 'package:valorant_info/features/maps/presentation/screens/maps_screen.dart';
+import 'package:valorant_info/features/weapons/presentation/cubits/weapons_cubit.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapons_screen.dart';
 
 abstract class Routes {
@@ -71,7 +72,8 @@ abstract class AppRoute {
       GoRoute(
         name: Routes.weaponsRoute,
         path: Routes.weaponsRoute,
-        builder: (context, state) => const WeaponsScreen()
+        builder: (context, state) =>  BlocProvider(
+            create: (context) => sl<WeaponCubit>(), child: const WeaponsScreen()),
       ),
     ],
   );

@@ -29,7 +29,7 @@ class WeaponRepositoryImpl implements WeaponRepository {
       {
         try{
           final List<Weapon> result=await _weaponsRemoteDataSource.getWeapons();
-          _weaponsLocalDataSource.saveWeaponsInSharedPref(weapons: result);
+          await _weaponsLocalDataSource.saveWeaponsInSharedPref(weapons:result);
           return Right(result);
         }on ServerException catch (failure) {
           return Left(ServerFailure(failure.message!));

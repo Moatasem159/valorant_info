@@ -43,7 +43,7 @@ class WeaponModel extends Weapon {
         "displayIcon": weaponModel.displayIcon,
         "weaponStats": WeaponStatsModel.toJson(weaponModel.weaponStats!),
         "shopData": ShopDataModel.toJson(weaponModel.shopData!),
-        "skins": List<SkinModel>.from(
+        "skins": List<dynamic>.from(
             weaponModel.skins!.map((x) => SkinModel.toJson(x))),
       };
 

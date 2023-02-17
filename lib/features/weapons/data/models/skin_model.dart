@@ -35,7 +35,7 @@ class SkinModel extends Skin {
         "themeUuid": skin.themeUuid,
         "contentTierUuid": skin.contentTierUuid,
         "displayIcon": skin.displayIcon,
-        "chromas": List<ChromaModel>.from(
+        "chromas": List<dynamic>.from(
             skin.chromas!.map((x) => ChromaModel.toJson(x))),
         "levels":
             List<dynamic>.from(skin.levels!.map((x) => LevelModel.toJson(x))),
