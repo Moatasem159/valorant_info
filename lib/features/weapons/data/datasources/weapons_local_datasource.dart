@@ -22,7 +22,7 @@ class WeaponsLocalDataSourceImpl implements  WeaponsLocalDataSource{
     final String time = await _sharedPrefrencesManager.getData(key: "weaponsTime")??'';
     if(weaponsString.isNotEmpty)
     {
-      if(DateTime.now().difference(DateTime.parse(time)).inDays>60)
+      if(DateTime.now().difference(DateTime.parse(time)).inDays>15)
       {
         _sharedPrefrencesManager.clear(key: AppStrings.weapons);
         weapons=[];

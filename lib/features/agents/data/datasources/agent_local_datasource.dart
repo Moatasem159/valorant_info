@@ -22,7 +22,7 @@ class AgentLocalDataSourceImpl implements AgentLocalDataSource{
     final String time = await _sharedPrefrencesManager.getData(key: "agentsTime")??'';
     if(agentString.isNotEmpty)
     {
-      if(DateTime.now().difference(DateTime.parse(time)).inDays>50)
+      if(DateTime.now().difference(DateTime.parse(time)).inDays>15)
       {
         _sharedPrefrencesManager.clear(key: AppStrings.agents);
         agents=[];
