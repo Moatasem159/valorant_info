@@ -22,7 +22,7 @@ class MapLocalDataSourceImpl implements MapLocalDataSource{
     final String time = await _sharedPrefrencesManager.getData(key:"mapsTime")??'';
     if(mapsString.isNotEmpty)
     {
-      if(DateTime.now().difference(DateTime.parse(time)).inDays>15){
+      if(DateTime.now().difference(DateTime.parse(time)).inDays>30){
         _sharedPrefrencesManager.clear(key: AppStrings.maps);
         maps=[];
         return maps;

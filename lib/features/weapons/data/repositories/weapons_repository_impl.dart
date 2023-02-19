@@ -11,39 +11,25 @@ class WeaponRepositoryImpl implements WeaponRepository {
   final WeaponsLocalDataSource _weaponsLocalDataSource;
   final WeaponsRemoteDataSource _weaponsRemoteDataSource;
   final NetworkInfo _networkInfo;
-  WeaponRepositoryImpl(
-    this._weaponsLocalDataSource,
-    this._weaponsRemoteDataSource,
-    this._networkInfo,
-  );
+  WeaponRepositoryImpl(this._weaponsLocalDataSource, this._weaponsRemoteDataSource, this._networkInfo);
   @override
-  Future<Either<Failure, List<Weapon>>> getWeapons() async{
-    List<Weapon> cachedWeapons=await _weaponsLocalDataSource.getWeaponsFromSharedPref();
-    if(await _networkInfo.isConnected)
-    {
-      if(cachedWeapons.isNotEmpty)
-      {
-        return right(cachedWeapons);
-      }
-      else
-      {
-        try{
-          final List<Weapon> result=await _weaponsRemoteDataSource.getWeapons();
-          await _weaponsLocalDataSource.saveWeaponsInSharedPref(weapons:result);
+  Future<Either<Failure, List<Weapon>>> getWeapons() async {
+    List<Weapon> cachedWeapons =
+        await _weaponsLocalDataSource.getWeaponsFromSharedPref();
+    if (cachedWeapons.isNotEmpty) {
+      return right(cachedWeapons);
+    } else {
+      if (await _networkInfo.isConnected) {
+        try {
+          final List<Weapon> result =
+              await _weaponsRemoteDataSource.getWeapons();
+          await _weaponsLocalDataSource.saveWeaponsInSharedPref(
+              weapons: result);
           return Right(result);
-        }on ServerException catch (failure) {
+        } on ServerException catch (failure) {
           return Left(ServerFailure(failure.message!));
         }
-      }
-    }
-    else
-    {
-      if(cachedWeapons.isNotEmpty)
-      {
-        return right(cachedWeapons);
-      }
-      else
-      {
+      } else {
         return left(const ServerFailure(AppStrings.noInternetConnection));
       }
     }
