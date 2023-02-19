@@ -25,8 +25,7 @@ class WeaponImage extends StatelessWidget {
       },
       placeholder: (context, imageProvider) {
         return Container(
-          padding: const EdgeInsets.all(AppPadding.s8),
-          margin: const EdgeInsets.all(AppPadding.s10),
+          margin: const EdgeInsets.all(AppPadding.s5),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height / 5,
           decoration: BoxDecoration(
