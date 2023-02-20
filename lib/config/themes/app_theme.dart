@@ -6,10 +6,13 @@ abstract class AppTheme{
   static ThemeData lightTheme=ThemeData(
       fontFamily: AppStrings.fontFamily,
     primaryColor: Colors.black,
+      primaryColorLight: Colors.black,
+      primaryColorDark: Colors.white,
     colorScheme: const ColorScheme.light().copyWith(
       background: Colors.white,
     ),
     appBarTheme: ThemeData.light().appBarTheme.copyWith(
+      elevation:0,
       backgroundColor: Colors.white,
       iconTheme: const IconThemeData(
         color: Colors.black
@@ -35,12 +38,15 @@ abstract class AppTheme{
   static ThemeData darkTheme=ThemeData(
 
       fontFamily: AppStrings.fontFamily,
-      primaryColor: Colors.white,
+      primaryColor: Colors.white12,
+      primaryColorLight: Colors.white,
+      primaryColorDark: Colors.black,
       colorScheme: const ColorScheme.light().copyWith(
         onBackground: Colors.black,
         background: Colors.black,
       ),
       appBarTheme: ThemeData.dark().appBarTheme.copyWith(
+        elevation: 0,
         iconTheme: const IconThemeData(
               color: Colors.white
   ),

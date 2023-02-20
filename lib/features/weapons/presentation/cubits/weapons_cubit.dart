@@ -20,6 +20,9 @@ class WeaponCubit extends Cubit<WeaponsStates> {
     emit(response.fold((l) => GetWeaponsErrorState(), (networkWeapons) {
       weapons = [];
       weapons = networkWeapons;
+      for (var element in weapons) {
+        element.skins!.removeWhere((element) =>element.chromas![0].displayName=="Standard");
+      }
       return GetWeaponsSuccessState();
     }));
   }

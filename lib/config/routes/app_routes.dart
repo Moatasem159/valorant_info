@@ -12,7 +12,9 @@ import 'package:valorant_info/features/maps/domain/entities/map_entity.dart';
 import 'package:valorant_info/features/maps/presentation/cubits/map_cubit.dart';
 import 'package:valorant_info/features/maps/presentation/screens/map_details_screen.dart';
 import 'package:valorant_info/features/maps/presentation/screens/maps_screen.dart';
+import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
 import 'package:valorant_info/features/weapons/presentation/cubits/weapons_cubit.dart';
+import 'package:valorant_info/features/weapons/presentation/screens/weapon_details_screen.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapons_screen.dart';
 
 abstract class Routes {
@@ -22,6 +24,7 @@ abstract class Routes {
   static const String mapsRoute = "/mapsRoute";
   static const String mapDetailsRoute = "/mapDetailsRoute";
   static const String weaponsRoute = "/weaponsRoute";
+  static const String weaponDetailsRoute = "/weaponDetailsRoute";
 }
 
 abstract class AppRoute {
@@ -74,6 +77,12 @@ abstract class AppRoute {
         path: Routes.weaponsRoute,
         builder: (context, state) =>  BlocProvider(
             create: (context) => sl<WeaponCubit>(), child: const WeaponsScreen()),
+      ),
+      GoRoute(
+        name: Routes.weaponDetailsRoute,
+        path: Routes.weaponDetailsRoute,
+        builder: (context, state) => WeaponDetailsScreen(
+          weapon: state.extra as Weapon),
       ),
     ],
   );

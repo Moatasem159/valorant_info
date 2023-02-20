@@ -13,5 +13,20 @@ abstract class AppStrings {
   static const String initiator="Initiator";
   static const String controller="Controller";
   static const String sentinel="Sentinel";
+  static const String from="From";
+  static const String to="to";
+  static const String headDamage="Head damage";
+  static const String bodyDamage="Body damage";
+  static const String ledDamage="Leg damage";
+  static const String damageRanges="Damage ranges";
+  static const String cost="Cost";
+  static const String category="Category";
+  static const String fireRate="Fire rate";
+  static const String equipTime="Equip time";
+  static const String reloadTime="Reload time";
+  static const String firstBulletAccuracy="First bullet accuracy";
+  static const String walPenetration="Wall penetration";
+  static const String imageInShop="Image in shop";
+  static const String skins="Skins";
   static const String noInternetConnection="No Internet Connections";
 }

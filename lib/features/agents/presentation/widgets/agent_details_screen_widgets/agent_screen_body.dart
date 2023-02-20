@@ -5,7 +5,7 @@ class AgentScreenBody extends StatelessWidget {
   final Agent agent;
   const AgentScreenBody({super.key, required this.agent});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,

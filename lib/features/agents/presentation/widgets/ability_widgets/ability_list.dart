@@ -9,26 +9,30 @@ class AbilitiesList extends StatefulWidget {
   @override
   State<AbilitiesList> createState() => _AbilitiesListState();
 }
+
 class _AbilitiesListState extends State<AbilitiesList> {
   late Ability selectedAbility;
+
   @override
   void initState() {
     super.initState();
-    selectedAbility=Ability();
-    for(int i=0;i<widget.abilities.length;i++)
-      {
-        widget.abilities[i].isSelected=false;
-      }
-  }
-  selectButton(ability){
-    for(int i=0;i<widget.abilities.length;i++)
-    {
-      widget.abilities[i].isSelected=false;
+    selectedAbility = Ability();
+    for (int i = 0; i < widget.abilities.length; i++) {
+      widget.abilities[i].isSelected = false;
     }
-   selectedAbility= widget.abilities.firstWhere((element) => element==ability);
-    widget.abilities.firstWhere((element) => element==ability).isSelected=true;
+  }
+
+  selectButton(ability) {
+    for (int i = 0; i < widget.abilities.length; i++) {
+      widget.abilities[i].isSelected = false;
+    }
+    selectedAbility =
+        widget.abilities.firstWhere((element) => element == ability);
+    widget.abilities.firstWhere((element) => element == ability).isSelected =
+        true;
     setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -36,17 +40,20 @@ class _AbilitiesListState extends State<AbilitiesList> {
         children: [
           Wrap(
             children: widget.abilities
-                .map((e) => AbilityWidget(
+                .map(
+                  (e) => AbilityWidget(
                     ability: e,
-                    onTap: () {
-                      selectButton(e);
-                    },
-                  ),).toList(),
+                    onTap: ()=> selectButton(e),
+                  ),
+                )
+                .toList(),
           ),
-          if(selectedAbility!=Ability())
-          AbilityDescription(ability: selectedAbility),
-          if(selectedAbility==Ability())
-            const SizedBox(height: AppSize.s30,)
+          if (selectedAbility != Ability())
+            AbilityDescription(ability: selectedAbility),
+          if (selectedAbility == Ability())
+            const SizedBox(
+              height: AppSize.s30,
+            )
         ],
       ),
     );

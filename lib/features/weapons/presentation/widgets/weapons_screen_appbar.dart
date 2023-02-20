@@ -7,7 +7,6 @@ class WeaponsScreenAppBar extends StatelessWidget implements PreferredSizeWidget
     return AppBar(
       title: const Text(AppStrings.weapons),
       centerTitle: true,
-      elevation: 0,
     );
   }
   @override

@@ -20,12 +20,12 @@ class RoleWidget extends StatelessWidget {
           padding: const EdgeInsets.all(AppPadding.s8),
           height: AppSize.s50,
           decoration: BoxDecoration(
-              color: isSelected ?Theme.of(context).primaryColor:Theme.of(context).colorScheme.background,
+              color: isSelected ?Theme.of(context).primaryColorLight:Theme.of(context).colorScheme.background,
               borderRadius: BorderRadius.circular(AppRadius.s10),
-            border: Border.all(color: Theme.of(context).primaryColor)
+            border: Border.all(color: Theme.of(context).primaryColorLight)
           ),
           child:Text(role,style: Theme.of(context).textTheme.labelMedium!.copyWith(
-            color:isSelected?Theme.of(context).colorScheme.background:Theme.of(context).primaryColor
+            color:isSelected?Theme.of(context).colorScheme.background:Theme.of(context).primaryColorLight
           ),),
         ),
       ),
