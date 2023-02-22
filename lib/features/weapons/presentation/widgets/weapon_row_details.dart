@@ -30,8 +30,7 @@ class WeaponRowDetails extends StatelessWidget {
             padding: const EdgeInsets.all(AppPadding.s5),
             color: isEven ? Theme.of(context).primaryColor : Colors.red,
             child: Text(
-              title,
-
+              title.tr(context)!,
               style: Theme.of(context)
                   .textTheme
                   .displayMedium!

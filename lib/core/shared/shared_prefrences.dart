@@ -20,4 +20,8 @@ class SharedPrefrencesManager extends SharedPrefrencesConsumer{
   {
     return sharedPreferences.remove(key);
   }
+   @override
+   bool containsKey({required String key}){
+     return sharedPreferences.containsKey(key);
+   }
 }

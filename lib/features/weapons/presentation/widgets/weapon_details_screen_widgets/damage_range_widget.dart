@@ -24,11 +24,11 @@ class DamageRangeWidget extends StatelessWidget {
           height: 10,
         ),
         WeaponRowDetails(
-            title: AppStrings.headDamage.tr(context)!, isEven: false, infoNum: "${damageRange.headDamage}"),
+            title: AppStrings.headDamage, isEven: false, infoNum: "${damageRange.headDamage}"),
         WeaponRowDetails(
-            title: AppStrings.bodyDamage.tr(context)!, isEven: true, infoNum: "${damageRange.bodyDamage}"),
+            title: AppStrings.bodyDamage, isEven: true, infoNum: "${damageRange.bodyDamage}"),
         WeaponRowDetails(
-            title: AppStrings.ledDamage.tr(context)!, isEven: false, infoNum: "${damageRange.legDamage}"),
+            title: AppStrings.ledDamage, isEven: false, infoNum: "${damageRange.legDamage}"),
       ]),
     );
   }

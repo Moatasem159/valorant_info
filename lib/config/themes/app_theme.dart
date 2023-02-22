@@ -4,6 +4,10 @@ import 'package:valorant_info/core/utils/app_strings.dart';
 
 abstract class AppTheme{
   static ThemeData lightTheme=ThemeData(
+    iconTheme: const IconThemeData(
+      color: Colors.black,
+
+    ),
       fontFamily: AppStrings.fontFamily,
     primaryColor: Colors.black,
       primaryColorLight: Colors.black,
@@ -27,6 +31,9 @@ abstract class AppTheme{
         labelMedium: TextStyle(
           color: Colors.white
         ),
+        labelLarge: TextStyle(
+          color: Colors.black
+        ),
       displayMedium: TextStyle(
           color: Colors.black
       ),
@@ -36,7 +43,10 @@ abstract class AppTheme{
     )
   );
   static ThemeData darkTheme=ThemeData(
+      iconTheme: const IconThemeData(
+        color: Colors.white,
 
+      ),
       fontFamily: AppStrings.fontFamily,
       primaryColor: Colors.white12,
       primaryColorLight: Colors.white,
@@ -60,6 +70,9 @@ abstract class AppTheme{
    textTheme:const TextTheme(
      labelMedium: TextStyle(
        color: Colors.black,
+     ),
+     labelLarge: TextStyle(
+         color: Colors.white
      ),
      displayMedium: TextStyle(
          color: Colors.white

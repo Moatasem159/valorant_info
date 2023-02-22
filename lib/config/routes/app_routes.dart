@@ -14,6 +14,7 @@ import 'package:valorant_info/features/maps/presentation/screens/map_details_scr
 import 'package:valorant_info/features/maps/presentation/screens/maps_screen.dart';
 import 'package:valorant_info/features/settings/presentation/screens/language_screen.dart';
 import 'package:valorant_info/features/settings/presentation/screens/settings_screen.dart';
+import 'package:valorant_info/features/settings/presentation/screens/theme_screen.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
 import 'package:valorant_info/features/weapons/presentation/cubits/weapons_cubit.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapon_details_screen.dart';
@@ -24,6 +25,7 @@ abstract class Routes {
   static const String agentsRoute = "/agentsRoute";
   static const String settingsRoute = "/settingsRoute";
   static const String languageRoute = "/languageRoute";
+  static const String themeRoute = "/themeRoute";
   static const String agentDetailsRoute = "/agentDetailsRoute";
   static const String mapsRoute = "/mapsRoute";
   static const String mapDetailsRoute = "/mapDetailsRoute";
@@ -49,6 +51,11 @@ abstract class AppRoute {
         name: Routes.languageRoute,
         path: Routes.languageRoute,
         builder: (context, state) => const LanguageScreen(),
+      ),
+      GoRoute(
+        name: Routes.themeRoute,
+        path: Routes.themeRoute,
+        builder: (context, state) => const ThemeScreen(),
       ),
       GoRoute(
         name: Routes.agentsRoute,
