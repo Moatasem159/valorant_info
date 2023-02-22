@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/utils/app_padding.dart';
 import 'package:valorant_info/core/utils/app_strings.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
@@ -15,42 +16,42 @@ class WeaponDetails extends StatelessWidget {
         children: [
           if (weapon.shopData!.cost! != 0)
             WeaponRowDetails(
-              title: AppStrings.cost,
+              title: AppStrings.cost.tr(context)!,
               infoNum: "${weapon.shopData!.cost!}",
               isEven: false,
             ),
           WeaponRowDetails(
-            title: AppStrings.category,
+            title: AppStrings.category.tr(context)!,
             info: weapon.category!,
             isEven: true,
           ),
           if (weapon.weaponStats!.fireRate! != 0)
             WeaponRowDetails(
-              title: AppStrings.fireRate,
+              title: AppStrings.fireRate.tr(context)!,
               infoNum: "${weapon.weaponStats!.fireRate!}",
               isEven: false,
             ),
           if (weapon.weaponStats!.equipTimeSeconds! != 0)
             WeaponRowDetails(
-              title: AppStrings.equipTime,
+              title: AppStrings.equipTime.tr(context)!,
               infoNum: "${weapon.weaponStats!.equipTimeSeconds!}",
               isEven: true,
             ),
           if (weapon.weaponStats!.equipTimeSeconds! != 0)
             WeaponRowDetails(
-              title: AppStrings.reloadTime,
+              title: AppStrings.reloadTime.tr(context)!,
               infoNum: "${weapon.weaponStats!.equipTimeSeconds!}",
               isEven: false,
             ),
           if (weapon.weaponStats!.firstBulletAccuracy! != 0)
             WeaponRowDetails(
-              title: AppStrings.firstBulletAccuracy,
+              title: AppStrings.firstBulletAccuracy.tr(context)!,
               infoNum: "${weapon.weaponStats!.firstBulletAccuracy!}",
               isEven: true,
             ),
           if (weapon.weaponStats!.wallPenetration != '')
             WeaponRowDetails(
-              title: AppStrings.walPenetration,
+              title: AppStrings.walPenetration.tr(context)!,
               info: weapon.weaponStats!.wallPenetration!,
               isEven: false,
             ),

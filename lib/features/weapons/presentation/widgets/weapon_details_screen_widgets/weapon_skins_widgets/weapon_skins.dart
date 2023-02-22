@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/utils/app_strings.dart';
 import 'package:valorant_info/core/utils/font_size.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
@@ -11,7 +12,7 @@ class WeaponSkins extends StatelessWidget {
     return Column(
       children: [
         Text(
-          AppStrings.skins,
+          AppStrings.skins.tr(context)!,
           style: Theme.of(context)
               .textTheme
               .displayMedium!

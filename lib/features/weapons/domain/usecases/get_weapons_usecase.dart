@@ -5,7 +5,7 @@ import 'package:valorant_info/features/weapons/domain/repositories/weapon_reposi
 class GetWeaponsUseCase {
   final WeaponRepository _weaponRepository;
   GetWeaponsUseCase(this._weaponRepository);
-  Future<Either<Failure, List<Weapon>>> call() async {
-    return await _weaponRepository.getWeapons();
+  Future<Either<Failure, List<Weapon>>> call(String lang) async {
+    return await _weaponRepository.getWeapons(lang);
   }
 }

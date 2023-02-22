@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/utils/app_size.dart';
 import 'package:valorant_info/features/agents/domain/entities/agent.dart';
 class AgentProfile extends StatelessWidget {
@@ -50,7 +51,9 @@ class AgentProfile extends StatelessWidget {
         ),
         Positioned(
           top: 25,
-          left: 12,
+          width: 50,
+          left: AppLocalizations.of(context)!.isEnLocale?
+          2:MediaQuery.of(context).size.width/1.2,
           child: GestureDetector(
             onTap: () {
               GoRouter.of(context).pop();

@@ -10,9 +10,9 @@ class MapCubit extends Cubit<MapStates> {
   static get(context)=>BlocProvider.of<MapCubit>(context);
   GetMapsUseCase getMapsUseCase;
   late List<MapEntity> maps;
-  Future<void> getMaps()async{
+  Future<void> getMaps(String lang)async{
     emit( GetMapsLoadingState());
-    Either<Failure,List<MapEntity>> response=await getMapsUseCase.call();
+    Either<Failure,List<MapEntity>> response=await getMapsUseCase.call(lang);
     emit(response.fold((l){
       return GetMapErrorState();
     }, (networkMaps){

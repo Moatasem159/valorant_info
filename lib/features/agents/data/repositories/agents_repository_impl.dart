@@ -13,8 +13,8 @@ class AgentRepositoryImpl implements AgentsRepository{
   final NetworkInfo _networkInfo;
   AgentRepositoryImpl(this._agentsRemoteDataSource,this._networkInfo, this._agentLocalDataSource);
   @override
-  Future<Either<Failure, List<Agent>>> getAgents() async{
-   List<Agent> cachedAgents=await _agentLocalDataSource.getAgentsFromSharedPref();
+  Future<Either<Failure, List<Agent>>> getAgents(String lang) async{
+   List<Agent> cachedAgents=await _agentLocalDataSource.getAgentsFromSharedPref(lang);
    if(cachedAgents.isNotEmpty)
      {
        return right(cachedAgents);
@@ -24,8 +24,8 @@ class AgentRepositoryImpl implements AgentsRepository{
      if(await _networkInfo.isConnected)
        {
          try{
-           final List<Agent> result=await _agentsRemoteDataSource.getAgents();
-           _agentLocalDataSource.saveAgentsInSharedPref(agents:result);
+           final List<Agent> result=await _agentsRemoteDataSource.getAgents(lang);
+           _agentLocalDataSource.saveAgentsInSharedPref(agents:result,lang: lang);
            return Right(result);
          }on ServerException catch (failure) {
            return Left(ServerFailure(failure.message!));

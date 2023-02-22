@@ -5,7 +5,7 @@ import 'package:valorant_info/features/maps/domain/repositories/map_repository.d
 class GetMapsUseCase{
   final MapRepository _mapRepository;
   GetMapsUseCase(this._mapRepository);
-  Future<Either<Failure, List<MapEntity>>> call()async {
-    return await _mapRepository.getMaps();
+  Future<Either<Failure, List<MapEntity>>> call(String lang)async {
+    return await _mapRepository.getMaps(lang);
   }
 }

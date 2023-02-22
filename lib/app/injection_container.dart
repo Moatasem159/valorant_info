@@ -20,6 +20,12 @@ import 'package:valorant_info/features/maps/data/repositories/map_repository_imp
 import 'package:valorant_info/features/maps/domain/repositories/map_repository.dart';
 import 'package:valorant_info/features/maps/domain/usecases/get_maps_usecase.dart';
 import 'package:valorant_info/features/maps/presentation/cubits/map_cubit.dart';
+import 'package:valorant_info/features/settings/data/datasources/lang_locale_data_source.dart';
+import 'package:valorant_info/features/settings/data/repositories/lang_repository_impl.dart';
+import 'package:valorant_info/features/settings/domain/repositories/lang_repository.dart';
+import 'package:valorant_info/features/settings/domain/usecases/change_lang_usecase.dart';
+import 'package:valorant_info/features/settings/domain/usecases/get_saved_lang.dart';
+import 'package:valorant_info/features/settings/presentation/cubit/locale_cubit/locale_cubit.dart';
 import 'package:valorant_info/features/weapons/data/datasources/weapons_local_datasource.dart';
 import 'package:valorant_info/features/weapons/data/datasources/weapons_remote_datasource.dart';
 import 'package:valorant_info/features/weapons/data/repositories/weapons_repository_impl.dart';
@@ -31,19 +37,24 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   //blocs
+  sl.registerFactory(() =>LocaleCubit(changeLangUseCase: sl(),getSavedLangUseCase: sl()));
   sl.registerFactory(() =>AgentsCubit(getAgentsUseCase: sl()));
   sl.registerFactory(() =>MapCubit(getMapsUseCase:sl()));
   sl.registerFactory(() =>WeaponCubit(getWeaponsUseCase:sl()));
 
   //useCases
+  sl.registerLazySingleton<ChangeLangUseCase>(() => ChangeLangUseCase(sl()));
+  sl.registerLazySingleton<GetSavedLangUseCase>(() => GetSavedLangUseCase(sl()));
   sl.registerLazySingleton<GetAgentsUseCase>(() => GetAgentsUseCase(sl()));
   sl.registerLazySingleton<GetMapsUseCase>(() => GetMapsUseCase(sl()));
   sl.registerLazySingleton<GetWeaponsUseCase>(() => GetWeaponsUseCase(sl()));
   // Repository
+  sl.registerLazySingleton<LangRepository>(() => LangRepositoryImpl(sl()));
   sl.registerLazySingleton<AgentsRepository>(() => AgentRepositoryImpl(sl(),sl(),sl()));
   sl.registerLazySingleton<MapRepository>(() => MapRepositoryImpl(sl(),sl(),sl()));
   sl.registerLazySingleton<WeaponRepository>(() => WeaponRepositoryImpl(sl(),sl(),sl()));
   //dataSource
+  sl.registerLazySingleton<LangLocaleDataSource>(() => LangLocaleDataSourceImpl(sl()));
   sl.registerLazySingleton<AgentsRemoteDataSource>(() => AgentsRemoteDataSourceImpl(sl()));
   sl.registerLazySingleton<AgentLocalDataSource>(() => AgentLocalDataSourceImpl(sl()));
   sl.registerLazySingleton<MapsRemoteDataSource>(() => MapsRemoteDataSourceImpl(sl()));

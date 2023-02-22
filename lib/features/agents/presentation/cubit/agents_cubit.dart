@@ -12,9 +12,9 @@ class AgentsCubit extends Cubit<AgentsStates> {
   late List<Agent>agents;
   late List<Agent> roleAgents;
   bool isAll=true;
-  Future<void> getAgents()async {
+  Future<void> getAgents(String lang)async {
     emit(GetAgentsLoadingState());
-    Either<Failure,List<Agent>> response=await getAgentsUseCase.call();
+    Either<Failure,List<Agent>> response=await getAgentsUseCase.call(lang);
     emit(response.fold((l){
       return GetAgentsErrorState();
     }, (networkAgents){

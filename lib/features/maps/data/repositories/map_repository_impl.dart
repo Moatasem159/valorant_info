@@ -13,15 +13,15 @@ class MapRepositoryImpl implements MapRepository {
   final NetworkInfo _networkInfo;
   MapRepositoryImpl(this._mapsRemoteDataSource, this._networkInfo, this._mapsLocalDataSource);
   @override
-  Future<Either<Failure, List<MapEntity>>> getMaps() async {
-    List<MapEntity> cachedMaps =await _mapsLocalDataSource.getMapsFromSharedPref();
+  Future<Either<Failure, List<MapEntity>>> getMaps(String lang) async {
+    List<MapEntity> cachedMaps =await _mapsLocalDataSource.getMapsFromSharedPref(lang);
     if (cachedMaps.isNotEmpty) {
       return right(cachedMaps);
     } else {
       if (await _networkInfo.isConnected) {
         try {
-          final List<MapEntity> result = await _mapsRemoteDataSource.getMaps();
-          _mapsLocalDataSource.saveMapsInSharedPref(maps: result);
+          final List<MapEntity> result = await _mapsRemoteDataSource.getMaps(lang);
+          _mapsLocalDataSource.saveMapsInSharedPref(maps: result,lang: lang);
           return Right(result);
         } on ServerException catch (failure) {
           return Left(ServerFailure(failure.message!));

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/utils/app_padding.dart';
 import 'package:valorant_info/core/utils/app_strings.dart';
 import 'package:valorant_info/core/utils/font_size.dart';
@@ -13,7 +14,7 @@ class DamageRangeWidget extends StatelessWidget {
       padding: const EdgeInsets.all(AppPadding.s5),
       child: Column(children: [
         Text(
-          "${AppStrings.from} ${damageRange.rangeStartMeters} ${AppStrings.to} ${damageRange.rangeEndMeters}",
+          "${AppStrings.from.tr(context)!} ${damageRange.rangeStartMeters} ${AppStrings.to.tr(context)!} ${damageRange.rangeEndMeters}",
           style: Theme.of(context)
               .textTheme
               .displayMedium!
@@ -23,11 +24,11 @@ class DamageRangeWidget extends StatelessWidget {
           height: 10,
         ),
         WeaponRowDetails(
-            title: AppStrings.headDamage, isEven: false, infoNum: "${damageRange.headDamage}"),
+            title: AppStrings.headDamage.tr(context)!, isEven: false, infoNum: "${damageRange.headDamage}"),
         WeaponRowDetails(
-            title: AppStrings.bodyDamage, isEven: true, infoNum: "${damageRange.bodyDamage}"),
+            title: AppStrings.bodyDamage.tr(context)!, isEven: true, infoNum: "${damageRange.bodyDamage}"),
         WeaponRowDetails(
-            title: AppStrings.ledDamage, isEven: false, infoNum: "${damageRange.legDamage}"),
+            title: AppStrings.ledDamage.tr(context)!, isEven: false, infoNum: "${damageRange.legDamage}"),
       ]),
     );
   }

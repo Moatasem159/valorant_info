@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/widgets/loading_body.dart';
 import 'package:valorant_info/features/maps/presentation/cubits/map_cubit.dart';
 import 'package:valorant_info/features/maps/presentation/cubits/map_state.dart';
@@ -13,7 +14,7 @@ class MapsScreen extends StatelessWidget {
     return Builder(
       builder: (context) {
         MapCubit cubit=MapCubit.get(context);
-        cubit.getMaps();
+        cubit.getMaps(AppLocalizations.of(context)!.getLang());
         return BlocBuilder<MapCubit, MapStates>(
           builder: (context, state) {
             if(state is GetMapSuccessState) {

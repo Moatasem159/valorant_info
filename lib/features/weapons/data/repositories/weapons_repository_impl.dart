@@ -13,17 +13,18 @@ class WeaponRepositoryImpl implements WeaponRepository {
   final NetworkInfo _networkInfo;
   WeaponRepositoryImpl(this._weaponsLocalDataSource, this._weaponsRemoteDataSource, this._networkInfo);
   @override
-  Future<Either<Failure, List<Weapon>>> getWeapons() async {
+  Future<Either<Failure, List<Weapon>>> getWeapons(String lang) async {
     List<Weapon> cachedWeapons =
-        await _weaponsLocalDataSource.getWeaponsFromSharedPref();
+        await _weaponsLocalDataSource.getWeaponsFromSharedPref(lang);
     if (cachedWeapons.isNotEmpty) {
       return right(cachedWeapons);
     } else {
       if (await _networkInfo.isConnected) {
         try {
           final List<Weapon> result =
-              await _weaponsRemoteDataSource.getWeapons();
+              await _weaponsRemoteDataSource.getWeapons(lang);
           await _weaponsLocalDataSource.saveWeaponsInSharedPref(
+            lang: lang,
               weapons: result);
           return Right(result);
         } on ServerException catch (failure) {

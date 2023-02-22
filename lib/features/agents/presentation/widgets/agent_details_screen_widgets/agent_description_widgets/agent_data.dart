@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/utils/app_size.dart';
 import 'package:valorant_info/core/utils/app_strings.dart';
 import 'package:valorant_info/features/agents/domain/entities/agent.dart';
@@ -13,14 +14,14 @@ class AgentData extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            InformationWidget(title:AppStrings.agent,info: agent.displayName!,),
-            InformationWidget(title:AppStrings.role,info: agent.role!.displayName! ),
+            InformationWidget(title:AppStrings.agent.tr(context)!,info: agent.displayName!,),
+            InformationWidget(title:AppStrings.role.tr(context)!,info: agent.role!.displayName! ),
           ],
         ),
         const SizedBox(height: AppSize.s15),
         Center(
           child:
-          InformationWidget(title:AppStrings.developerName,info: agent.developerName!,),
+          InformationWidget(title:AppStrings.developerName.tr(context)!,info: agent.developerName!,),
         ),
       ],
     );

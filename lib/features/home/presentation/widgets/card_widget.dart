@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/utils/app_padding.dart';
 import 'package:valorant_info/core/utils/app_radius.dart';
 import 'package:valorant_info/core/utils/app_size.dart';
@@ -51,7 +52,9 @@ class _CardWidgetState extends State<CardWidget> {
                   color:Colors.black54,
                   borderRadius: BorderRadius.vertical(bottom: Radius.circular(AppRadius.s10))
               ),
-              child:  Text(widget.title,style: const TextStyle(
+              child:  Text(
+                  widget.title.tr(context)!,
+                  style: const TextStyle(
                   color: Colors.white,
                   fontSize: FontSize.s18
               )),

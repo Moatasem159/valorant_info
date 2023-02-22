@@ -5,7 +5,7 @@ import 'package:valorant_info/features/agents/domain/repositories/agents_reposit
 class GetAgentsUseCase{
   final AgentsRepository _agentsRepository;
   GetAgentsUseCase(this._agentsRepository);
-  Future<Either<Failure, List<Agent>>> call()async {
-    return await _agentsRepository.getAgents();
+  Future<Either<Failure, List<Agent>>> call(String lang)async {
+    return await _agentsRepository.getAgents(lang);
   }
 }

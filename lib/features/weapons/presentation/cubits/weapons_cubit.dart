@@ -14,9 +14,9 @@ class WeaponCubit extends Cubit<WeaponsStates> {
 
   late List<Weapon> weapons;
 
-  Future<void> getWeapons() async {
+  Future<void> getWeapons(String lang) async {
     emit(GetWeaponsLoadingState());
-    Either<Failure, List<Weapon>> response = await getWeaponsUseCase.call();
+    Either<Failure, List<Weapon>> response = await getWeaponsUseCase.call(lang);
     emit(response.fold((l) => GetWeaponsErrorState(), (networkWeapons) {
       weapons = [];
       weapons = networkWeapons;

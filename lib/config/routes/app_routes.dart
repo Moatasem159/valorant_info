@@ -12,6 +12,8 @@ import 'package:valorant_info/features/maps/domain/entities/map_entity.dart';
 import 'package:valorant_info/features/maps/presentation/cubits/map_cubit.dart';
 import 'package:valorant_info/features/maps/presentation/screens/map_details_screen.dart';
 import 'package:valorant_info/features/maps/presentation/screens/maps_screen.dart';
+import 'package:valorant_info/features/settings/presentation/screens/language_screen.dart';
+import 'package:valorant_info/features/settings/presentation/screens/settings_screen.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
 import 'package:valorant_info/features/weapons/presentation/cubits/weapons_cubit.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapon_details_screen.dart';
@@ -20,11 +22,14 @@ import 'package:valorant_info/features/weapons/presentation/screens/weapons_scre
 abstract class Routes {
   static const String initialRoute = "/";
   static const String agentsRoute = "/agentsRoute";
+  static const String settingsRoute = "/settingsRoute";
+  static const String languageRoute = "/languageRoute";
   static const String agentDetailsRoute = "/agentDetailsRoute";
   static const String mapsRoute = "/mapsRoute";
   static const String mapDetailsRoute = "/mapDetailsRoute";
   static const String weaponsRoute = "/weaponsRoute";
   static const String weaponDetailsRoute = "/weaponDetailsRoute";
+
 }
 
 abstract class AppRoute {
@@ -34,6 +39,16 @@ abstract class AppRoute {
         name: Routes.initialRoute,
         path: Routes.initialRoute,
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        name: Routes.settingsRoute,
+        path: Routes.settingsRoute,
+        builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        name: Routes.languageRoute,
+        path: Routes.languageRoute,
+        builder: (context, state) => const LanguageScreen(),
       ),
       GoRoute(
         name: Routes.agentsRoute,
