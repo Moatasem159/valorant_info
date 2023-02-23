@@ -8,10 +8,8 @@ import 'package:valorant_info/features/settings/presentation/cubit/locale_cubit/
 import 'package:valorant_info/features/settings/presentation/cubit/locale_cubit/locale_states.dart';
 import 'package:valorant_info/features/settings/presentation/cubit/theme_cubit/theme_cubit.dart';
 import 'package:valorant_info/features/settings/presentation/cubit/theme_cubit/theme_state.dart';
-
 class ValorantInfo extends StatelessWidget {
   const ValorantInfo({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
