@@ -17,9 +17,9 @@ import 'package:valorant_info/features/settings/presentation/screens/settings_sc
 import 'package:valorant_info/features/settings/presentation/screens/theme_screen.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
 import 'package:valorant_info/features/weapons/presentation/cubits/weapons_cubit.dart';
+import 'package:valorant_info/features/weapons/presentation/screens/skins_screen.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapon_details_screen.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapons_screen.dart';
-
 abstract class Routes {
   static const String initialRoute = "/";
   static const String agentsRoute = "/agentsRoute";
@@ -31,6 +31,7 @@ abstract class Routes {
   static const String mapDetailsRoute = "/mapDetailsRoute";
   static const String weaponsRoute = "/weaponsRoute";
   static const String weaponDetailsRoute = "/weaponDetailsRoute";
+  static const String skinsScreenRoute = "/skinsScreenRoute";
 
 }
 
@@ -105,6 +106,11 @@ abstract class AppRoute {
         path: Routes.weaponDetailsRoute,
         builder: (context, state) => WeaponDetailsScreen(
           weapon: state.extra as Weapon),
+      ),
+      GoRoute(
+        name: Routes.skinsScreenRoute,
+        path: Routes.skinsScreenRoute,
+        builder: (context, state) => SkinsScreen(weapon:  state.extra as Weapon),
       ),
     ],
   );

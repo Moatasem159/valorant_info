@@ -12,7 +12,7 @@ class SkinsList extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         controller: PageController(viewportFraction: 0.88, keepPage: false),
         scrollDirection: Axis.horizontal,
-        itemCount: weapon.skins!.length,
+        itemCount: weapon.skins!.length>10?10:weapon.skins!.length,
         itemBuilder: (context, index) {
           return SkinCard(weapon: weapon,index: index,);
         },

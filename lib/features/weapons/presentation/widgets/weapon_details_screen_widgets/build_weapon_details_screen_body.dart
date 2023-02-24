@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
+import 'package:valorant_info/features/weapons/presentation/widgets/weapon_details_screen_widgets/see_more_skins_button.dart';
 import 'package:valorant_info/features/weapons/presentation/widgets/weapon_details_screen_widgets/weapon_details.dart';
 import 'package:valorant_info/features/weapons/presentation/widgets/weapon_details_screen_widgets/weapon_damage_ranges.dart';
 import 'package:valorant_info/features/weapons/presentation/widgets/weapon_details_screen_widgets/weapon_profile.dart';
@@ -13,6 +14,7 @@ class BuildWeaponDetailsScreenBody extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           WeaponProfile(weapon: weapon),
           WeaponDetails(weapon: weapon),
@@ -20,9 +22,12 @@ class BuildWeaponDetailsScreenBody extends StatelessWidget {
             WeaponShopImage(image: weapon.shopData!.newImage!),
           if (weapon.weaponStats!.damageRanges!.isNotEmpty)
             WeaponDamageRanges(damageRanges: weapon.weaponStats!.damageRanges!),
-          WeaponSkins(weapon: weapon)
+          WeaponSkins(weapon: weapon),
+          SeeMoreButton(weapon:weapon),
+
         ],
       ),
     );
   }
 }
+

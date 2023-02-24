@@ -15,17 +15,13 @@ class ThemeCubit extends Cubit<ThemeStates> {
   Future<void> _changeTheme({required String theme}) async {
     final response = await changeThemeUseCase.call(theme: theme);
     response.fold((failure) => debugPrint("cache Failure"),(value){
-      if (theme == AppStrings.lightTheme) {
-        isDark = false;
-      } else if (theme == AppStrings.darkTheme) {
-        isDark = true;
-      }
+      getTheme();
       emit(ChangeThemeState(isDark));
     });
   }
   Future<void> getTheme()async{
     final response = await getThemeUseCase.call();
-    response.fold((failure) => debugPrint("cache Failure"), (value) {
+    response.fold((failure) => debugPrint("cache Failure"),(value) {
       if (value == AppStrings.lightTheme) {
         isDark = false;
       } else if (value == AppStrings.darkTheme) {

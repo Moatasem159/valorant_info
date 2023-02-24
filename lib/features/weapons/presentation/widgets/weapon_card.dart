@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/config/routes/app_routes.dart';
 import 'package:valorant_info/core/utils/font_size.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
@@ -18,12 +19,13 @@ class WeaponCard extends StatelessWidget {
           WeaponCardImage(image: weapon.displayIcon!),
           Positioned(
             bottom: 15,
-            left: 15,
+            left:AppLocalizations.of(context)!.isEnLocale?15:0,
+            right: AppLocalizations.of(context)!.isEnLocale?0:15,
             child: Text(
               weapon.displayName!,
               style: Theme.of(context)
                   .textTheme
-                  .labelMedium!
+                  .labelLarge!
                   .copyWith(fontSize: FontSize.s18,color: Colors.white),
             ),
           ),
