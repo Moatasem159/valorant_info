@@ -1,101 +1,82 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:valorant_info/core/utils/app_colors.dart';
 import 'package:valorant_info/core/utils/app_strings.dart';
-
+import 'package:valorant_info/core/utils/font_size.dart';
 abstract class AppTheme{
   static ThemeData lightTheme=ThemeData(
     iconTheme: const IconThemeData(
-      color: Colors.black,
-
+      color: AppColors.primaryLightColor,
     ),
       fontFamily: AppStrings.fontFamily,
-    primaryColor: Colors.black,
-      primaryColorLight: Colors.black,
-      primaryColorDark: Colors.white,
+      primaryColor: AppColors.primaryLightColor,
+      primaryColorLight: AppColors.primaryLightColor,
+      primaryColorDark: AppColors.primaryLightWhiteColor,
     colorScheme: const ColorScheme.light().copyWith(
-      background: Colors.white,
+      background: AppColors.primaryLightWhiteColor,
     ),
     appBarTheme: ThemeData.light().appBarTheme.copyWith(
       elevation:0,
-      backgroundColor: Colors.white,
+      backgroundColor:AppColors.primaryLightWhiteColor,
       iconTheme: const IconThemeData(
-        color: Colors.black
+        color: AppColors.primaryLightColor,
       ),
       titleTextStyle: const TextStyle(
         fontFamily: AppStrings.fontFamily,
-        color: Colors.black,
-        fontSize: 30,
+        color: AppColors.primaryLightColor,
+        fontSize: FontSize.s24
       )
     ),
     textTheme:const TextTheme(
         labelMedium: TextStyle(
-          color: Colors.white
+          color: AppColors.primaryLightWhiteColor
         ),
         labelLarge: TextStyle(
-          color: Colors.black
+          color: AppColors.primaryLightColor,
         ),
       displayMedium: TextStyle(
-          color: Colors.black
+          color: AppColors.primaryLightColor,
       ),
     ),
     progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color:Colors.black
+      color:AppColors.primaryLightColor,
     )
   );
   static ThemeData darkTheme=ThemeData(
       iconTheme: const IconThemeData(
-        color: Colors.white,
-
+        color: AppColors.primaryDarkColor,
       ),
       fontFamily: AppStrings.fontFamily,
       primaryColor: Colors.white12,
-      primaryColorLight: Colors.white,
-      primaryColorDark: Colors.black,
+      primaryColorLight: AppColors.primaryDarkColor,
+      primaryColorDark: AppColors.primaryDarkBlackColor,
       colorScheme: const ColorScheme.light().copyWith(
-        onBackground: Colors.black,
-        background: Colors.black,
+        background: AppColors.primaryDarkBlackColor,
       ),
       appBarTheme: ThemeData.dark().appBarTheme.copyWith(
         elevation: 0,
         iconTheme: const IconThemeData(
-              color: Colors.white
+              color: AppColors.primaryDarkColor
   ),
-        backgroundColor: Colors.black,
+        backgroundColor:AppColors.primaryDarkBlackColor,
         titleTextStyle: const TextStyle(
               fontFamily: AppStrings.fontFamily,
-              color: Colors.white,
-              fontSize: 30
+              color: AppColors.primaryDarkColor,
+              fontSize: FontSize.s24
           )
       ),
    textTheme:const TextTheme(
      labelMedium: TextStyle(
-       color: Colors.black,
+       color: AppColors.primaryDarkBlackColor,
      ),
      labelLarge: TextStyle(
-         color: Colors.white
+         color: AppColors.primaryDarkColor
      ),
      displayMedium: TextStyle(
-         color: Colors.white
+         color: AppColors.primaryDarkColor
      ),
    ),
   progressIndicatorTheme: const ProgressIndicatorThemeData(
-          color:Colors.white
+          color:AppColors.primaryDarkColor
   )
   );
-}
-
-changeStatusBar(bool light){
-  if(light)
-  {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-    ));
-  }
-  if(!light)
-    {
-      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-          statusBarColor: Colors.black,
-      ));
-    }
-
 }

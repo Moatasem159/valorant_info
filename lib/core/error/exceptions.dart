@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-
 class ServerException extends Equatable implements Exception{
 
   final String? message;
@@ -13,7 +12,6 @@ class ServerException extends Equatable implements Exception{
     return "$message";
   }
 }
-
 class FetchDataException extends ServerException{
   const FetchDataException([message]): super("error During Communications");
 }
@@ -35,5 +33,3 @@ class InternetServerErrorException extends ServerException{
 class NoInternetConnectionException extends ServerException{
   const NoInternetConnectionException([message]): super("No Internet Connection");
 }
-
-

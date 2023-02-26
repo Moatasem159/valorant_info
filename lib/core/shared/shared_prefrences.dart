@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:valorant_info/core/shared/shared_prefrences_consumer.dart';
 class SharedPrefrencesManager extends SharedPrefrencesConsumer{
-   final  SharedPreferences sharedPreferences;
+   final SharedPreferences sharedPreferences;
   SharedPrefrencesManager({required this.sharedPreferences});
   @override
   Future<bool> saveData({required String key, required dynamic value}) async {
@@ -12,12 +12,10 @@ class SharedPrefrencesManager extends SharedPrefrencesConsumer{
   }
   @override
   dynamic getData({required String key}){
-
     return sharedPreferences.get(key);
   }
   @override
-  dynamic clear({required String key})
-  {
+  dynamic clear({required String key}){
     return sharedPreferences.remove(key);
   }
    @override

@@ -4,5 +4,4 @@ abstract class FontSize{
   static const double s18=18;
   static const double s20=20;
   static const double s24=24;
-
 }
