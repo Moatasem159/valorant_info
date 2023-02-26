@@ -18,7 +18,6 @@ class DioConsumer implements ApiConsumer {
           (X509Certificate cert, String host, int port) => true;
       return client;
     };
-
     client.options
       ..baseUrl = EndPoints.baseUrl
       ..responseType = ResponseType.plain
@@ -32,7 +31,6 @@ class DioConsumer implements ApiConsumer {
       client.interceptors.add(di.sl<LogInterceptor>());
     }
   }
-
   @override
   Future get(String path, {Map<String, dynamic>? queryParameters})async{
     try {
