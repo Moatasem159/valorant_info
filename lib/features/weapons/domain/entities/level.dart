@@ -4,12 +4,14 @@ class Level {
   final String? levelItem;
   final String? displayIcon;
   final String? streamedVideo;
+  bool ?isSelected;
 
-  const Level({
+   Level({
     this.uuid,
     this.displayName,
     this.levelItem,
     this.displayIcon,
     this.streamedVideo,
+   this.isSelected
   });
 }

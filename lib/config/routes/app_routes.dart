@@ -15,8 +15,10 @@ import 'package:valorant_info/features/maps/presentation/screens/maps_screen.dar
 import 'package:valorant_info/features/settings/presentation/screens/language_screen.dart';
 import 'package:valorant_info/features/settings/presentation/screens/settings_screen.dart';
 import 'package:valorant_info/features/settings/presentation/screens/theme_screen.dart';
+import 'package:valorant_info/features/weapons/domain/entities/skin.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
 import 'package:valorant_info/features/weapons/presentation/cubits/weapons_cubit.dart';
+import 'package:valorant_info/features/weapons/presentation/screens/skin_details_screen.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/skins_screen.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapon_details_screen.dart';
 import 'package:valorant_info/features/weapons/presentation/screens/weapons_screen.dart';
@@ -32,6 +34,7 @@ abstract class Routes {
   static const String weaponsRoute = "/weaponsRoute";
   static const String weaponDetailsRoute = "/weaponDetailsRoute";
   static const String skinsScreenRoute = "/skinsScreenRoute";
+  static const String skinsDetailsScreenRoute = "/skinsDetailsScreenRoute";
 
 }
 
@@ -111,6 +114,11 @@ abstract class AppRoute {
         name: Routes.skinsScreenRoute,
         path: Routes.skinsScreenRoute,
         builder: (context, state) => SkinsScreen(weapon:  state.extra as Weapon),
+      ),
+      GoRoute(
+        name: Routes.skinsDetailsScreenRoute,
+        path: Routes.skinsDetailsScreenRoute,
+        builder: (context, state) =>  SkinDetailsScreen(skin: state.extra as Skin),
       ),
     ],
   );

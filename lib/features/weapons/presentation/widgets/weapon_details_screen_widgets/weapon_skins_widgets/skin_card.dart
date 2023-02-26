@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:valorant_info/config/lang/app_localizations.dart';
+import 'package:valorant_info/config/routes/app_routes.dart';
 import 'package:valorant_info/core/utils/font_size.dart';
 import 'package:valorant_info/features/weapons/domain/entities/weapon.dart';
 import 'package:valorant_info/features/weapons/presentation/widgets/weapon_card_image.dart';
@@ -10,7 +12,9 @@ class SkinCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: ()=>GoRouter.of(context).pushNamed(
+          Routes.skinsDetailsScreenRoute,
+          extra:weapon.skins![index]),
       child: Stack(
         children: [
           WeaponCardImage(image: _image(weapon, index)),

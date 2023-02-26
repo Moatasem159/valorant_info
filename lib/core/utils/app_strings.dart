@@ -39,5 +39,6 @@ abstract class AppStrings {
   static const String imageInShop="imageInShop";
   static const String skins="skins";
   static const String seeMoreSkins="see_more_skins";
+  static const String basicLevel="basic";
   static const String noInternetConnection="No Internet Connections";
 }

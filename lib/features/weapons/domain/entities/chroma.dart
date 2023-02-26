@@ -4,12 +4,14 @@ class Chroma {
   final String? fullRender;
   final String? swatch;
   final String? streamedVideo;
+  bool ?isSelected;
 
-  const Chroma({
+   Chroma({
     this.uuid,
     this.displayName,
     this.fullRender,
     this.swatch,
     this.streamedVideo,
+    this.isSelected,
   });
 }

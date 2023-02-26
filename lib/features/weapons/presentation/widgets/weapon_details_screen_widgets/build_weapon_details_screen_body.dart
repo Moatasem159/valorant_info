@@ -16,7 +16,7 @@ class BuildWeaponDetailsScreenBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          WeaponProfile(weapon: weapon),
+          WeaponProfile(image:weapon.displayIcon!,name:weapon.displayName!),
           WeaponDetails(weapon: weapon),
           if (weapon.shopData!.newImage != '')
             WeaponShopImage(image: weapon.shopData!.newImage!),

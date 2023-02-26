@@ -18,7 +18,6 @@ class _AbilitiesListState extends State<AbilitiesList> {
     for (int i = 0; i < widget.abilities.length; i++) {
       widget.abilities[i].isSelected = false;
     }
-
   }
   selectButton(ability) {
     for (int i = 0; i < widget.abilities.length; i++) {
