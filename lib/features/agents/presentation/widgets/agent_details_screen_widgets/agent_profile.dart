@@ -12,23 +12,7 @@ class AgentProfile extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        CachedNetworkImage(
-          imageUrl: agent.background!,
-          imageBuilder: (context, imageProvider) {
-            return Container(
-              width: AppSize.s400,
-              height: AppSize.s400,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.fitHeight)),
-            );
-          },
-          placeholder: (context, url) => const SizedBox(
-            width: AppSize.s400,
-            height: AppSize.s400,
-          ),
-        ),
+        _AgentBackgroundImage(image: agent.background!),
         Hero(
           tag: "hero${agent.agentId}",
           child: CachedNetworkImage(
@@ -62,6 +46,38 @@ class AgentProfile extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class _AgentBackgroundImage extends StatelessWidget {
+  final String image;
+  const _AgentBackgroundImage({required this.image,});
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return CachedNetworkImage(
+      imageUrl: image,
+      imageBuilder: (context, imageProvider) {
+        return Container(
+          width: AppSize.s400,
+          height: AppSize.s400,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.fitHeight)),
+        );
+      },
+      placeholder: (context, url) => const SizedBox(
+        width: AppSize.s400,
+        height: AppSize.s400,
+      ),
+      errorWidget: (context, url, error) =>const SizedBox(
+        width: AppSize.s400,
+        height: AppSize.s400,
+      ) ,
     );
   }
 }

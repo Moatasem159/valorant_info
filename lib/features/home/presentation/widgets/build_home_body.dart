@@ -33,13 +33,13 @@ class BuildHomeBody extends StatelessWidget {
               GoRouter.of(context).pushNamed(Routes.weaponsRoute);
             },
           ),
-          CardWidget(
-            title: AppStrings.bundles,
-            cover: Constants.bundlesCover,
-            onTap: () {
-              // GoRouter.of(context).pushNamed(Routes.mapsRoute);
-            },
-          ),
+          // CardWidget(
+          //   title: AppStrings.bundles,
+          //   cover: Constants.bundlesCover,
+          //   onTap: () {
+          //     // GoRouter.of(context).pushNamed(Routes.mapsRoute);
+          //   },
+          // ),
         ],
       ),
     );
