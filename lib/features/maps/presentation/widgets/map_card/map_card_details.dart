@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_info/config/lang/app_localizations.dart';
 import 'package:valorant_info/core/utils/font_size.dart';
 import 'package:valorant_info/features/maps/domain/entities/map_entity.dart';
 
@@ -8,7 +9,8 @@ class MapCardDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 20,
+      left:AppLocalizations.of(context)!.isEnLocale?20:0,
+      right:!AppLocalizations.of(context)!.isEnLocale?20:0,
       bottom:20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

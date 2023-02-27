@@ -34,8 +34,8 @@ class _CardWidgetState extends State<CardWidget> {
           alignment: Alignment.bottomCenter,
           children: [
             Container(
-              width: AppSize.s350,
-              height: AppSize.s200,
+              width:AppSize.s350,
+              height: MediaQuery.of(context).size.height/3.7,
               decoration:  BoxDecoration(
                 borderRadius: BorderRadius.circular(AppRadius.s10),
                 image: DecorationImage(
@@ -47,7 +47,7 @@ class _CardWidgetState extends State<CardWidget> {
             Container(
               alignment: Alignment.center,
               height:AppSize.s30,
-              width: AppSize.s350,
+              width:MediaQuery.of(context).size.width-15,
               decoration: const BoxDecoration(
                   color:Colors.black54,
                   borderRadius: BorderRadius.vertical(bottom: Radius.circular(AppRadius.s10))

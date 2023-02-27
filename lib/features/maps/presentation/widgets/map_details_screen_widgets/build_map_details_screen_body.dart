@@ -9,7 +9,7 @@ class BuildMapDetailsScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         MapInfo(map: map),
         MapCardImage(map: map),

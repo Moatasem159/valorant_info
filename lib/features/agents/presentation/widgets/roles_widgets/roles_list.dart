@@ -16,9 +16,7 @@ class RolesList extends StatelessWidget {
         return SizedBox(
           height: AppSize.s50,
           child: ListView(
-            padding: !AppLocalizations.of(context)!.isEnLocale
-                ? EdgeInsets.only(right: MediaQuery.of(context).size.width/6)
-                : EdgeInsets.zero,
+            itemExtent:150,
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             children: [

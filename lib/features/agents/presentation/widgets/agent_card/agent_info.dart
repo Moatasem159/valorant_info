@@ -8,10 +8,11 @@ class AgentInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        right: !AppLocalizations.of(context)!.isEnLocale?120:0,
         bottom: 0,
-        left: AppLocalizations.of(context)!.isEnLocale?180:0,
-        top: 150,
+        left: AppLocalizations.of(context)!.isEnLocale
+            ? MediaQuery.of(context).size.width - 180
+            : MediaQuery.of(context).size.width - 130,
+        top: MediaQuery.of(context).size.height/4.5,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -20,6 +21,7 @@ class AgentInfo extends StatelessWidget {
             const SizedBox(height:AppSize.s10,),
             Text(agent.role!.displayName!,style:Theme.of(context).textTheme.labelMedium),
             const SizedBox(height:AppSize.s10,),
+            if(AppLocalizations.of(context)!.isEnLocale)
             Text(agent.developerName!,style:Theme.of(context).textTheme.labelMedium),
           ],
         ));

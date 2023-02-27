@@ -11,6 +11,7 @@ class BuildHomeBody extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children:[
           CardWidget(
             title: AppStrings.agents,

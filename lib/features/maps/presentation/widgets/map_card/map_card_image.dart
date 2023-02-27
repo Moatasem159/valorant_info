@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:valorant_info/core/utils/app_padding.dart';
 import 'package:valorant_info/core/utils/app_radius.dart';
+import 'package:valorant_info/core/utils/app_size.dart';
 import 'package:valorant_info/features/maps/domain/entities/map_entity.dart';
 class MapCardImage extends StatelessWidget {
   final MapEntity map;
@@ -16,12 +17,15 @@ class MapCardImage extends StatelessWidget {
         imageBuilder: (context, imageProvider) {
           return Container(
               height: MediaQuery.of(context).size.height/3.7,
-              width: MediaQuery.of(context).size.width,
+              width: AppSize.s350,
               padding: const EdgeInsets.all(AppPadding.s3),
               margin: const EdgeInsets.all(AppPadding.s5),
               decoration:BoxDecoration(
                   borderRadius: BorderRadius.circular(AppRadius.s14),
-                  image: DecorationImage(image: imageProvider)
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover
+                  ),
               )
           );
         },
@@ -30,7 +34,7 @@ class MapCardImage extends StatelessWidget {
           highlightColor:Colors.grey[500]! ,
           child: Container(
               height: MediaQuery.of(context).size.height/3.7,
-              width: MediaQuery.of(context).size.width,
+              width: AppSize.s350,
               padding: const EdgeInsets.all(AppPadding.s3),
               margin: const EdgeInsets.all(AppPadding.s5),
               decoration:BoxDecoration(

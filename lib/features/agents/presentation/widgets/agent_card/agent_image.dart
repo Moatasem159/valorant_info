@@ -8,7 +8,7 @@ class AgentImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 0,
+      left: 1,
       child: Hero(
         tag: "hero$id",
         child: CachedNetworkImage(

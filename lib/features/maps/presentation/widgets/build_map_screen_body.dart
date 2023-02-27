@@ -8,8 +8,11 @@ class BuildMapScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
-      child: Column(
-        children: maps.map((e) => MapCard(map: e)).toList(),
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: maps.map((e) => MapCard(map: e)).toList(),
+        ),
       ),
     );
   }
