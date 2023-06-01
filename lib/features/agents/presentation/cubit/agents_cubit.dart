@@ -26,7 +26,7 @@ class AgentsCubit extends Cubit<AgentsStates> {
   }
   List<bool> selectedButton=[true,false,false,false,false];
   ScrollController controller=ScrollController();
-  changeButton(index, {role}){
+  changeButton(index,{role}){
     for(int i=0;i<selectedButton.length;i++)
     {
       selectedButton[i]=false;

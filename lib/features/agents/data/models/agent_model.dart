@@ -52,7 +52,7 @@ class AgentModel extends Agent {
             agentModel.abilities!.map((x) => x.abilityToJson())),
       };
 
-  static String encode(List<AgentModel> agents) => json.encode(
+  static String encode(List<AgentModel> agents) =>  json.encode(
         agents
             .map<Map<String, dynamic>>((agent) => AgentModel.agentToJson(agent))
             .toList());
